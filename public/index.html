@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>WareConnect</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/6510466b6c.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <navbar>
+        <div class="logo">WareConnect</div>
+    </navbar>
+        <div class="main">
+            <div class="create-join">
+                <div class="text"><div class="head">Create Video Meetings in one-click.</div>
+                <div class="subtext">Easy, Fast and Safe</div>
+                </div>
+                <button id="createroom" class="createroom-butt unselectable">Create Room</button><br>
+                <input type="text" name="room" spellcheck="false" placeholder="Enter Room Code" id="roomcode" class="roomcode"><br>
+                <div class="joinroom unselectable" id="joinroom">Join Room</div>
+            </div>
+            <div class="video-cont">
+                <video class="video-self" autoplay muted playsinline></video>
+                <div class="settings">
+                    <div class="device" id="mic"><i class="fas fa-microphone"></i></div>
+                    <div class="device" id="webcam"><i class="fas fa-video"></i></div>
+                </div>
+            </div>
+        </div>
+
+    <script src="js/landing.js"></script>
+    <script>
+        function esDispositivoMovil() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        // Función para mostrar una alerta si es un dispositivo móvil
+        function mostrarAlertaSiEsMovil() {
+            if (esDispositivoMovil()) {
+                document.querySelector('body').innerHTML = '';
+                document.querySelector('body').innerHTML = `
+                
+                <h1>Ark Designers Team</h1>
+<p class="zoom-area">We are designing this website for mobile devices. thank you for your patience</p>
+<section class="error-container">
+  <span class="four"><span class="screen-reader-text">4</span></span>
+  <span class="zero"><span class="screen-reader-text">0</span></span>
+  <span class="four"><span class="screen-reader-text">4</span></span>
+</section>
+                `;
+
+            document.querySelector('head').innerHTML = '<link rel="stylesheet" href="css/resize.css">';
+            }
+        }
+
+        // Llamar a la función cuando la página cargue
+        window.onload = function() {
+            mostrarAlertaSiEsMovil();
+        };
+
+        window.addEventListener('resize', function(){
+            mostrarAlertaSiEsMovil();
+            window.location.reload();
+        });
+    </script>
+</body>
+
+</html>
